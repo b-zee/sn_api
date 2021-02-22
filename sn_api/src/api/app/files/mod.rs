@@ -163,7 +163,7 @@ impl Safe {
 
     /// Fetch a FilesContainer from a XorUrlEncoder without performing any type of URL resolution
     pub(crate) async fn fetch_files_container(
-        &mut self,
+        &self,
         xorurl_encoder: &XorUrlEncoder,
     ) -> Result<(u64, FilesMap)> {
         // Check if the URL specifies a specific version of the content or simply the latest available
@@ -606,7 +606,7 @@ impl Safe {
 
     /// Fetch an Blob from a XorUrlEncoder without performing any type of URL resolution
     pub(crate) async fn fetch_public_blob(
-        &mut self,
+        &self,
         xorurl_encoder: &XorUrlEncoder,
         range: Range,
     ) -> Result<Vec<u8>> {

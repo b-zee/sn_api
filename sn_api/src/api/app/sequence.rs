@@ -74,7 +74,7 @@ impl Safe {
 
     /// Fetch a Sequence from a XorUrlEncoder without performing any type of URL resolution
     pub(crate) async fn fetch_sequence(
-        &mut self,
+        &self,
         xorurl_encoder: &XorUrlEncoder,
     ) -> Result<(u64, Vec<u8>)> {
         let is_private = xorurl_encoder.data_type() == SafeDataType::PrivateSequence;

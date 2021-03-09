@@ -75,7 +75,7 @@ impl Safe {
     }
 
     pub async fn nrs_map_container_add(
-        &mut self,
+        &self,
         name: &str,
         link: &str,
         default: bool,
@@ -185,7 +185,7 @@ impl Safe {
     }
 
     pub async fn nrs_map_container_remove(
-        &mut self,
+        &self,
         name: &str,
         dry_run: bool,
     ) -> Result<(u64, XorUrl, ProcessedEntries, NrsMap)> {
@@ -314,7 +314,7 @@ impl Safe {
     }
 
     // Private helper to serialise an NrsMap and store it in a Public Blob
-    async fn store_nrs_map(&mut self, nrs_map: &NrsMap) -> Result<String> {
+    async fn store_nrs_map(&self, nrs_map: &NrsMap) -> Result<String> {
         // The NrsMapContainer is a Sequence where each NRS Map version is
         // an entry containing the XOR-URL of the Blob that contains the serialised NrsMap.
         // TODO: use RDF format
